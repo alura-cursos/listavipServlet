@@ -35,15 +35,15 @@
 
 		<form action="convidado">
 			<div class="form-group">
-				<label for="exampleInputPassword1">Nome</label> <input type="text"
+				<label for="nome">Nome</label> <input type="text"
 					class="form-control" id="nome" name="nome" placeholder="Nome">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email</label> <input type="email"
+				<label for="email">Email</label> <input type="email"
 					class="form-control" id="email" name="email" placeholder="Email">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">Telefone</label> <input
+				<label for="telefone">Telefone</label> <input
 					type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone">
 			</div>
 			<button type="submit" class="btn btn-success">Convidar</button>
