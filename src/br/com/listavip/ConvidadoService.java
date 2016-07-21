@@ -4,12 +4,12 @@ import java.util.List;
 
 public class ConvidadoService {
 	
-	public List<Convidado> obterListaDeConvidados(){
-		return new ConvidadoRepository().obterobterListaDeConvidados();
+	public List<Convidado> obterTodos(){
+		return new ConvidadoRepository().obterTodos();
 	}
 	
-	public void salvarConvidado(Convidado convidado){
-		new ConvidadoRepository().salvarConvidado(convidado);
+	public void salvar(Convidado convidado){
+		new ConvidadoRepository().salvar(convidado);
 		
 	}
 

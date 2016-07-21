@@ -2,13 +2,9 @@ package br.com.listavip;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FabricaDeConexao {
-
-	Connection connection = null;
 
 	public Connection obterConexao() {
 
@@ -28,7 +24,7 @@ public class FabricaDeConexao {
 
 			String password = "root";
 
-			connection = DriverManager.getConnection(url, username, password);
+			Connection connection = DriverManager.getConnection(url, username, password);
 
 			return connection;
 
@@ -42,39 +38,6 @@ public class FabricaDeConexao {
 
 		}
 
-	}
-	
-	public static void main(String[] args) throws SQLException {
-		FabricaDeConexao conexao = new FabricaDeConexao();
-		Connection conn = conexao.obterConexao();
-		PreparedStatement preparedStatement = null;
-		
-		String insertSQL = "INSERT INTO convidado(nome, email, telefone) VALUES(?, ?, ?);";
-		
-		preparedStatement = conn.prepareStatement(insertSQL);
-		preparedStatement.setString(1, "Paula");
-		preparedStatement.setString(2, "paula@gmail.com");
-		preparedStatement.setString(3, "(41) 8877-0099");
-		
-		preparedStatement.execute();
-		
-		
-		String selectSQL = "select * from convidado";
-		
-		preparedStatement = conn.prepareStatement(selectSQL);
-		
-		ResultSet rs = preparedStatement.executeQuery();
-
-		while (rs.next()) {
-
-			String userid = rs.getString("id");
-			String username = rs.getString("nome");
-
-			System.out.println("userid : " + userid);
-			System.out.println("username : " + username);
-
-		}
-		
 	}
 
 }

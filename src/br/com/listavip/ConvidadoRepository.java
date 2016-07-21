@@ -9,9 +9,7 @@ import java.util.List;
 
 public class ConvidadoRepository {
 
-	PreparedStatement preparedStatement = null;
-
-	public List<Convidado> obterobterListaDeConvidados() {
+	public List<Convidado> obterTodos() {
 
 		try {
 
@@ -19,7 +17,7 @@ public class ConvidadoRepository {
 
 			String select = "select * from convidado";
 
-			preparedStatement = conexao.prepareStatement(select);
+			PreparedStatement preparedStatement = conexao.prepareStatement(select);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			
@@ -47,7 +45,7 @@ public class ConvidadoRepository {
 		return null;
 	}
 
-	public void salvarConvidado(Convidado convidado) {
+	public void salvar(Convidado convidado) {
 		
 		try {
 
@@ -55,7 +53,7 @@ public class ConvidadoRepository {
 
 			String insert = "INSERT INTO convidado(nome, email, telefone) VALUES(?, ?, ?);";
 			
-			preparedStatement = conexao.prepareStatement(insert);
+			PreparedStatement preparedStatement = conexao.prepareStatement(insert);
 			preparedStatement.setString(1, convidado.getNome());
 			preparedStatement.setString(2, convidado.getEmail());
 			preparedStatement.setString(3, convidado.getTelefone());

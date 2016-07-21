@@ -14,7 +14,7 @@ import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
-@WebServlet(value = "/convidado")
+@WebServlet("/convidado")
 public class ConvidadoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -2949873189744763662L;
@@ -29,13 +29,13 @@ public class ConvidadoServlet extends HttpServlet {
 		Convidado novoConvidado = new Convidado(nome, email, telefone);
 
 		ConvidadoService convidadoService = new ConvidadoService();
-		convidadoService.salvarConvidado(novoConvidado);
+		convidadoService.salvar(novoConvidado);
 
 		enviarEmail(novoConvidado);
 
-		List<Convidado> listaDeConvidados = new ConvidadoService().obterListaDeConvidados();
+		List<Convidado> convidados = new ConvidadoService().obterTodos();
 
-		req.setAttribute("lista", listaDeConvidados);
+		req.setAttribute("convidados", convidados);
 		req.getRequestDispatcher("/lista.jsp").forward(req, resp);
 
 	}

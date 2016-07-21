@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value="/listavip")
+@WebServlet("/listavip")
 public class ListaVIPServlet extends HttpServlet {
 	
 	
@@ -18,7 +18,7 @@ public class ListaVIPServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<Convidado> listaDeConvidados = new ConvidadoService().obterListaDeConvidados();
+		List<Convidado> listaDeConvidados = new ConvidadoService().obterTodos();
         
 		req.setAttribute("lista", listaDeConvidados);
         req.getRequestDispatcher("/lista.jsp").forward(req, resp);

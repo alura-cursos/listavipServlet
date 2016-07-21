@@ -21,7 +21,7 @@
 						<th>Nome</th>
 					</tr>
 				</thead>
-				<c:forEach var="convidado" items="${lista}">
+				<c:forEach var="convidado" items="${convidados}">
 					<tr>
 						<td>${convidado.nome}</td>
 						<td>${convidado.email}</td>
