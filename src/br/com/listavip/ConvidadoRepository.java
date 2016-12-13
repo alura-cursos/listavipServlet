@@ -45,7 +45,7 @@ public class ConvidadoRepository {
 		return null;
 	}
 
-	public void salvar(Convidado convidado) {
+	public void salvar(Convidado convidado){
 		
 		try {
 
@@ -62,7 +62,6 @@ public class ConvidadoRepository {
 			
 			conexao.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 
 	}

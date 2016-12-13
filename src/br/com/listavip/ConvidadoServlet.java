@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -31,8 +30,6 @@ public class ConvidadoServlet extends HttpServlet {
 		ConvidadoService convidadoService = new ConvidadoService();
 		convidadoService.salvar(novoConvidado);
 
-		enviarEmail(novoConvidado);
-
 		List<Convidado> convidados = new ConvidadoService().obterTodos();
 
 		req.setAttribute("convidados", convidados);
@@ -45,7 +42,7 @@ public class ConvidadoServlet extends HttpServlet {
 			Email email = new SimpleEmail();
 			email.setHostName("smtp.googlemail.com");
 			email.setSmtpPort(465);
-			email.setAuthenticator(new DefaultAuthenticator("email", "password"));
+			//email.setAuthenticator(new DefaultAuthenticator("email", "password"));
 			email.setSSLOnConnect(true);
 
 			email.setFrom("email");

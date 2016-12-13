@@ -18,9 +18,9 @@ public class ListaVIPServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<Convidado> listaDeConvidados = new ConvidadoService().obterTodos();
+		List<Convidado> convidados = new ConvidadoService().obterTodos();
         
-		req.setAttribute("lista", listaDeConvidados);
+		req.setAttribute("convidados", convidados);
         req.getRequestDispatcher("/lista.jsp").forward(req, resp);
     
 	}

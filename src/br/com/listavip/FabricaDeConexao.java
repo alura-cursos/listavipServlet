@@ -22,7 +22,7 @@ public class FabricaDeConexao {
 
 			String username = "root";
 
-			String password = "root";
+			String password = "";
 
 			Connection connection = DriverManager.getConnection(url, username, password);
 
